@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M2CONNECT Anleitungen & Setup</title>
+    <meta name="description" content="Detaillierte Anleitungen für die Installation und Konfiguration des M2CONNECT DualVlog Adapters. Schritt-für-Schritt Guides für optimale Audio-Qualität.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: #f5f5f7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1d1d1f 0%, #2d2d30 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            background: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #d2d2d7;
+        }
+
+        .breadcrumb a {
+            color: #0071e3;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            background: white;
+            margin: 40px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #d2d2d7;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab.active {
+            background: white;
+            color: #0071e3;
+            border-bottom: 3px solid #0071e3;
+        }
+
+        .nav-tab:hover {
+            background: #e9ecef;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .instruction-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .diagram-section {
+            text-align: center;
+        }
+
+        .diagram-container {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 2px solid #e9ecef;
+        }
+
+        .diagram-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .component-list {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .component-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .component-item:last-child {
+            border-bottom: none;
+        }
+
+        .component-icon {
+            width: 40px;
+            height: 40px;
+            background: #0071e3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .component-details h4 {
+            margin-bottom: 5px;
+            color: #1d1d1f;
+        }
+
+        .component-details p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .step-by-step {
+            margin-top: 40px;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #0071e3;
+        }
+
+        .step-number {
+            background: #0071e3;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            margin-bottom: 10px;
+            color: #1d1d1f;
+        }
+
+        .step-content p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ff9500 0%, #ff6b35 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .warning-box::before {
+            content: "⚠️";
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #0071e3 0%, #005bb5 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-box::before {
+            content: "💡";
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        .troubleshooting {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .troubleshooting h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .troubleshooting p {
+            color: #856404;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #0071e3;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #005bb5;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+
+        .footer {
+            background: #1d1d1f;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer h4 {
+            margin-bottom: 15px;
+            color: #f5f5f7;
+        }
+
+        .footer a {
+            color: #86868b;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer a:hover {
+            color: #f5f5f7;
+        }
+
+        @media (max-width: 768px) {
+            .instruction-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .step-number {
+                margin: 0 0 15px 0;
+            }
+        }
+
+        .back-to-shop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .download-section {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .download-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>M2CONNECT Setup & Anleitungen</h1>
+            <p>Professionelle Installation für kristallklare Audio-Aufnahmen</p>
+        </div>
+    </header>
+
+    <nav class="breadcrumb">
+        <div class="container">
+            <a href="/">Home</a> → 
+            <a href="/shop">Shop</a> → 
+            <span>Anleitungen</span>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showTab('installation')">📋 Installation</button>
+                <button class="nav-tab" onclick="showTab('wiring')">🔌 Verkabelung</button>
+                <button class="nav-tab" onclick="showTab('troubleshooting')">🛠️ Problemlösung</button>
+                <button class="nav-tab" onclick="showTab('downloads')">📥 Downloads</button>
+            </div>
+
+            <div id="installation" class="tab-content active">
+                <h2>Schritt-für-Schritt Installation</h2>
+                
+                <div class="instruction-grid">
+                    <div>
+                        <h3>Was Sie benötigen</h3>
+                        <div class="component-list">
+                            <div class="component-item">
+                                <div class="component-icon">1</div>
+                                <div class="component-details">
+                                    <h4>M2CONNECT DualVlog Adapter</h4>
+                                    <p>Kompaktes Gerät für Helm-Montage</p>
+                                </div>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">2</div>
+                                <div class="component-details">
+                                    <h4>Sena OpenMesh / 50R Intercom</h4>
+                                    <p>Ihr vorhandenes Bluetooth-Kommunikationssystem</p>
+                                </div>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">3</div>
+                                <div class="component-details">
+                                    <h4>GoPro Kamera</h4>
+                                    <p>Ihre vorhandene Action-Kamera</p>
+                                </div>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">🛒</div>
+                                <div class="component-details">
+                                    <h4>Zusätzlich benötigt:</h4>
+                                    <p style="color: #ff6b35; font-weight: 500;">Separat zu beschaffen</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="warning-box">
+                            <div>
+                                <strong>Wichtig:</strong> Kabel und Befestigungsmaterial sind NICHT im Lieferumfang enthalten und müssen separat beschafft werden.
+                            </div>
+                        </div>
+
+                        <h4>Was Sie zusätzlich benötigen:</h4>
+                        <div class="component-list">
+                            <div class="component-item">
+                                <div class="component-icon">🔌</div>
+                                <div class="component-details">
+                                    <h4>3,5mm Klinkenkabel</h4>
+                                    <p>Für Kamera und Lautsprecher-Verbindung</p>
+                                </div>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">🎤</div>
+                                <div class="component-details">
+                                    <h4>TRRS-Mikrofon (CTIA)</h4>
+                                    <p>Kompatibles Mikrofon mit 3,5mm TRRS-Anschluss</p>
+                                </div>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">🔊</div>
+                                <div class="component-details">
+                                    <h4>3,5mm Lautsprecher</h4>
+                                    <p>Ersatz für originale Intercom-Lautsprecher</p>
+                                </div>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">📱</div>
+                                <div class="component-details">
+                                    <h4>LineIn Kabel</h4>
+                                    <p>3,5mm Klinke für Intercom-Verbindung</p>
+                                </div>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">🔗</div>
+                                <div class="component-details">
+                                    <h4>Befestigungsmaterial</h4>
+                                    <p>Klebepads, Klettband oder Clips für Helm-Montage</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diagram-section">
+                        <h3>Übersicht Verkabelung</h3>
+                        <div class="diagram-container">
+                            <svg class="diagram-image" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Adapter Box -->
+                                <rect x="20" y="20" width="80" height="60" fill="#f0f0f0" stroke="#333" stroke-width="2" rx="5"/>
+                                <text x="60" y="45" text-anchor="middle" font-size="10" font-weight="bold">DualVlog</text>
+                                <text x="60" y="55" text-anchor="middle" font-size="10" font-weight="bold">Adapter</text>
+                                
+                                <!-- Connection Points -->
+                                <circle cx="100" cy="35" r="3" fill="#ff4444"/>
+                                <circle cx="100" cy="50" r="3" fill="#44ff44"/>
+                                <circle cx="100" cy="65" r="3" fill="#4444ff"/>
+                                
+                                <!-- Labels -->
+                                <text x="110" y="38" font-size="8">Camera</text>
+                                <text x="110" y="53" font-size="8">TRRS Mic</text>
+                                <text x="110" y="68" font-size="8">Speaker</text>
+                                
+                                <!-- Cables -->
+                                <line x1="100" y1="35" x2="200" y2="35" stroke="#333" stroke-width="2"/>
+                                <line x1="100" y1="50" x2="200" y2="120" stroke="#333" stroke-width="2"/>
+                                <line x1="100" y1="65" x2="200" y2="200" stroke="#333" stroke-width="2"/>
+                                
+                                <!-- Devices -->
+                                <!-- GoPro -->
+                                <rect x="350" y="15" width="60" height="40" fill="#333" rx="5"/>
+                                <text x="380" y="37" text-anchor="middle" font-size="10" fill="white">GoPro</text>
+                                
+                                <!-- Intercom -->
+                                <ellipse cx="320" cy="120" rx="40" ry="25" fill="#666"/>
+                                <text x="320" y="125" text-anchor="middle" font-size="9" fill="white">Sena</text>
+                                
+                                <!-- Speaker -->
+                                <circle cx="320" cy="200" r="20" fill="#444"/>
+                                <text x="320" y="205" text-anchor="middle" font-size="8" fill="white">🔊</text>
+                                
+                                <!-- Connection lines -->
+                                <line x1="200" y1="35" x2="350" y2="35" stroke="#333" stroke-width="2"/>
+                                <line x1="200" y1="120" x2="280" y2="120" stroke="#333" stroke-width="2"/>
+                                <line x1="200" y1="200" x2="300" y2="200" stroke="#333" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-by-step">
+                    <h3>Installationsschritte</h3>
+                    
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Zusätzliche Komponenten beschaffen</h3>
+                            <p>Besorgen Sie sich die benötigten Kabel, ein TRRS-Mikrofon (CTIA-kompatibel), 3,5mm Lautsprecher und geeignetes Befestigungsmaterial für Ihren Helm.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Adapter im Helm befestigen</h3>
+                            <p>Befestigen Sie den M2CONNECT DualVlog Adapter sicher im Inneren Ihres Helms. Verwenden Sie Klebepads, Klettband oder Clips. Achten Sie darauf, dass der Adapter nicht im Sichtfeld stört.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Kamera verbinden</h3>
+                            <p>Verbinden Sie das 3,5mm Klinkenkabel von der GoPro mit dem "Camera" Anschluss am Adapter.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>TRRS Mikrofon anschließen</h3>
+                            <p>Das TRRS-Mikrofon an den "TRRS Mic" Anschluss anschließen. <strong>Wichtig:</strong> Es muss einen 3,5mm-Klinkenanschluss haben und TRRS-MIC-CTIA kompatibel sein.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Lautsprecher konfigurieren</h3>
+                            <p>Die 3,5mm Lautsprecher an den "Speaker" Anschluss anschließen. Die originalen Lautsprecher können nicht mehr verwendet werden.</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h3>LineIn Verbindung</h3>
+                            <p>3,5mm-Klinkenkabel an den Kopfhörerausgang des Intercoms anschließen. Die andere Seite des Klinkenkabels an den Adapter-Anschluss "LineIn" anschließen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <div>
+                        <strong>Wichtiger Hinweis:</strong> Der M2CONNECT DualVlog Adapter wird nur als Gerät geliefert. Alle Kabel, Mikrofone, Lautsprecher und Befestigungsmaterialien müssen separat beschafft werden.
+                    </div>
+                </div>
+            </div>
+
+            <div id="wiring" class="tab-content">
+                <h2>Detaillierte Verkabelung</h2>
+                
+                <div class="instruction-grid">
+                    <div>
+                        <h3>Kabeltypen verstehen</h3>
+                        <div class="component-list">
+                            <div class="component-item">
+                                <div class="component-icon">🔌</div>
+                                <div class="component-details">
+                                    <h4>3,5mm Klinkenkabel</h4>
+                                    <p>Standard Audio-Kabel für Kamera und Lautsprecher</p>
+                                </div>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">🎤</div>
+                                <div class="component-details">
+                                    <h4>TRRS-Kabel</h4>
+                                    <p>4-poliges Kabel für Mikrofon mit CTIA-Standard</p>
+                                </div>
+                            </div>
+                            <div class="component-item">
+                                <div class="component-icon">📱</div>
+                                <div class="component-details">
+                                    <h4>LineIn Kabel</h4>
+                                    <p>Verbindung vom Intercom-Ausgang zum Adapter</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <div>
+                                <strong>Tipp:</strong> Verlegen Sie alle Kabel ordentlich im Helm und führen Sie sie nach außen. Verwenden Sie Kabelkanäle oder -clips, um ein Verheddern zu vermeiden.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Anschluss-Diagramm</h3>
+                        <div class="diagram-container">
+                            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Detailed connection diagram -->
+                                <rect x="50" y="50" width="100" height="80" fill="#e8e8e8" stroke="#333" stroke-width="2" rx="8"/>
+                                <text x="100" y="70" text-anchor="middle" font-size="12" font-weight="bold">M2CONNECT</text>
+                                <text x="100" y="85" text-anchor="middle" font-size="10">DualVlog</text>
+                                <text x="100" y="98" text-anchor="middle" font-size="10">Adapter</text>
+                                
+                                <!-- Port indicators -->
+                                <circle cx="150" cy="65" r="4" fill="#ff4444"/>
+                                <circle cx="150" cy="85" r="4" fill="#44ff44"/>
+                                <circle cx="150" cy="105" r="4" fill="#4444ff"/>
+                                <circle cx="150" cy="125" r="4" fill="#ffaa00"/>
+                                
+                                <!-- Port labels -->
+                                <text x="160" y="69" font-size="8">Camera</text>
+                                <text x="160" y="89" font-size="8">TRRS Mic</text>
+                                <text x="160" y="109" font-size="8">Speaker</text>
+                                <text x="160" y="129" font-size="8">LineIn</text>
+                                
+                                <!-- Connected devices with detailed labels -->
+                                <rect x="280" y="45" width="80" height="30" fill="#333" rx="4"/>
+                                <text x="320" y="63" text-anchor="middle" font-size="9" fill="white">GoPro Hero</text>
+                                
+                                <ellipse cx="320" cy="105" rx="35" ry="15" fill="#666"/>
+                                <text x="320" y="109" text-anchor="middle" font-size="8" fill="white">TRRS Mikrofon</text>
+                                
+                                <circle cx="320" cy="145" r="15" fill="#444"/>
+                                <text x="320" y="149" text-anchor="middle" font-size="7" fill="white">Speaker</text>
+                                
+                                <rect x="280" y="175" width="80" height="25" fill="#555" rx="4"/>
+                                <text x="320" y="190" text-anchor="middle" font-size="8" fill="white">Sena Intercom</text>
+                                
+                                <!-- Connection lines with better styling -->
+                                <line x1="150" y1="65" x2="280" y2="60" stroke="#ff4444" stroke-width="3"/>
+                                <line x1="150" y1="85" x2="285" y2="105" stroke="#44ff44" stroke-width="3"/>
+                                <line x1="150" y1="105" x2="305" y2="145" stroke="#4444ff" stroke-width="3"/>
+                                <line x1="150" y1="125" x2="280" y2="187" stroke="#ffaa00" stroke-width="3"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="troubleshooting" class="tab-content">
+                <h2>Häufige Probleme & Lösungen</h2>
+                
+                <div class="troubleshooting">
+                    <h4>Problem: Kein Audio in der Kamera-Aufnahme</h4>
+                    <p><strong>Lösung:</strong> Überprüfen Sie alle Kabelverbindungen. Stellen Sie sicher, dass das TRRS-Mikrofon korrekt angeschlossen ist und der CTIA-Standard unterstützt wird.</p>
+                </div>
+
+                <div class="troubleshooting">
+                    <h4>Problem: Intercom-Audio ist verzerrt</h4>
+                    <p><strong>Lösung:</strong> Reduzieren Sie die Lautstärke am Intercom. Überprüfen Sie die LineIn-Verbindung zum Kopfhörerausgang.</p>
+                </div>
+
+                <div class="troubleshooting">
+                    <h4>Problem: Mikrofon funktioniert nicht</h4>
+                    <p><strong>Lösung:</strong> Verwenden Sie ausschließlich TRRS-MIC-CTIA kompatible Mikrofone. Prüfen Sie die Polarität des Anschlusses.</p>
+                </div>
+
+                <div class="troubleshooting">
+                    <h4>Problem: Welche Kabel brauche ich genau?</h4>
+                    <p><strong>Lösung:</strong> Sie benötigen: 2-3x 3,5mm Klinkenkabel (male-to-male), ein TRRS-Mikrofon mit CTIA-Standard, und 3,5mm Lautsprecher als Ersatz für die originalen Intercom-Speaker.</p>
+                </div>
+
+                <div class="troubleshooting">
+                    <h4>Problem: Wo finde ich CTIA-kompatible Mikrofone?</h4>
+                    <p><strong>Lösung:</strong> Suchen Sie nach "3.5mm TRRS Mikrofon CTIA" oder "Smartphone-Headset Mikrofon". Viele Gaming-Headsets verwenden diesen Standard.</p>
+                </div>
+
+                <div class="troubleshooting">
+                    <h4>Problem: Adapter stört beim Tragen des Helms</h4>
+                    <p><strong>Lösung:</strong> Repositionieren Sie den Adapter an einer anderen Stelle im Helm. Verwenden Sie dünnere Klebepads oder Klettband.</p>
+                </div>
+
+                <div class="troubleshooting">
+                    <h4>Problem: Kabel sind zu kurz</h4>
+                    <p><strong>Lösung:</strong> Kaufen Sie längere 3,5mm Klinkenkabel oder verwenden Sie Verlängerungskabel. Positionieren Sie den Adapter näher zu den Anschlüssen.</p>
+                </div>
+
+                <h3>Kontakt Support</h3>
+                <p>Falls Sie weitere Hilfe benötigen, kontaktieren Sie unseren technischen Support:</p>
+                <div style="margin: 20px 0;">
+                    <p><strong>E-Mail:</strong> support@mediatoconnect.de</p>
+                    <p><strong>Telefon:</strong> +49 (0) 123 456 789</p>
+                    <p><strong>Servicezeiten:</strong> Mo-Fr 9:00-17:00 Uhr</p>
+                </div>
+            </div>
+
+            <div id="downloads" class="tab-content">
+                <h2>Downloads & Ressourcen</h2>
+                
+                <div class="download-section">
+                    <h3>📋 Installationsanleitungen</h3>
+                    <p>Laden Sie detaillierte PDF-Anleitungen für die Installation herunter</p>
+                    <div class="download-links">
+                        <a href="#" class="btn">📄 Installationsanleitung PDF</a>
+                        <a href="#" class="btn btn-secondary">🎥 Video-Tutorial</a>
+                        <a href="#" class="btn btn-secondary">🔧 Wartungsanleitung</a>
+                    </div>
+                </div>
+
+                <div class="download-section">
+                    <h3>🎛️ Konfigurationshilfen</h3>
+                    <p>Tools und Vorlagen für die optimale Konfiguration</p>
+                    <div class="download-links">
+                        <a href="#" class="btn">⚙️ Setup-Checkliste</a>
+                        <a href="#" class="btn btn-secondary">📊 Audio-Einstellungen</a>
+                        <a href="#" class="btn btn-secondary">🎚️ EQ-Presets</a>
+                    </div>
+                </div>
+
+                <div class="download-section">
+                    <h3>🛠️ Technische Spezifikationen</h3>
+                    <p>Detaillierte technische Dokumentation</p>
+                    <div class="download-links">
+                        <a href="#" class="btn">📋 Datenblatt</a>
+                        <a href="#" class="btn btn-secondary">🔌 Pinout-Diagramm</a>
+                        <a href="#" class="btn btn-secondary">⚡ Schaltplan</a>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <div>
+                        <strong>Hinweis:</strong> Alle Downloads sind für registrierte Kunden verfügbar. Bei Fragen zur Registrierung kontaktieren Sie unseren Support.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Produkt</h4>
+                    <a href="/">M2CONNECT Shop</a>
+                    <a href="/features">Features</a>
+                    <a href="/compatibility">Kompatibilität</a>
+                    <a href="/warranty">Garantie</a>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <a href="/instructions">Anleitungen</a>
+                    <a href="/faq">FAQ</a>
+                    <a href="/contact">Kontakt</a>
+                    <a href="/returns">Rückgabe</a>
+                </div>
+                <div>
+                    <h4>Unternehmen</h4>
+                    <a href="/about">Über uns</a>
+                    <a href="/privacy">Datenschutz</a>
+                    <a href="/terms">AGB</a>
+                    <a href="/imprint">Impressum</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-shop">
+        <a href="/" class="btn">🛒 Zurück zum Shop</a>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animations
+        window.addEventListener('load', function() {
+            const elements = document.querySelectorAll('.step, .component-item, .troubleshooting');
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'all 0.6s ease';
+                
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Enhanced tab switching with URL hash
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Update URL hash
+            window.location.hash = tabName;
+            
+            // Scroll to top of content
+            document.querySelector('.main-content').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Load tab from URL hash on page load
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                showTab(hash);
+            }
+        });
+
+        // Add search functionality for troubleshooting
+        function searchTroubleshooting() {
+            const searchTerm = document.getElementById('troubleshootingSearch').value.toLowerCase();
+            const troubleshootingItems = document.querySelectorAll('.troubleshooting');
+            
+            troubleshootingItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    item.style.opacity = '1';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Add print functionality
+        function printInstructions() {
+            window.print();
+        }
+
+        // Add dark mode toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // Load dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <style>
+        /* Dark mode styles */
+        .dark-mode {
+            background: #1a1a1a;
+            color: #f5f5f7;
+        }
+
+        .dark-mode .main-content,
+        .dark-mode .component-list,
+        .dark-mode .step,
+        .dark-mode .troubleshooting {
+            background: #2d2d30;
+            color: #f5f5f7;
+        }
+
+        .dark-mode .diagram-container {
+            background: #2d2d30;
+            border-color: #424245;
+        }
+
+        .dark-mode .nav-tab {
+            background: #2d2d30;
+            color: #f5f5f7;
+        }
+
+        .dark-mode .nav-tab:hover {
+            background: #424245;
+        }
+
+        .dark-mode .nav-tab.active {
+            background: #0071e3;
+            color: white;
+        }
+
+        /* Print styles */
+        @media print {
+            .header, .footer, .nav-tabs, .back-to-shop {
+                display: none;
+            }
+            
+            .main-content {
+                box-shadow: none;
+                margin: 0;
+            }
+            
+            .tab-content {
+                display: block !important;
+            }
+            
+            .step {
+                break-inside: avoid;
+            }
+        }
+
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .header p {
+                font-size: 16px;
+            }
+            
+            .tab-content {
+                padding: 20px;
+            }
+            
+            .download-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .download-links .btn {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Accessibility improvements */
+        .btn:focus,
+        .nav-tab:focus {
+            outline: 3px solid #0071e3;
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .step, .component-list, .troubleshooting {
+                border: 2px solid #333;
+            }
+            
+            .btn {
+                border: 2px solid transparent;
+            }
+            
+            .btn:hover {
+                border-color: #fff;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Additional utility classes */
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+        
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+        .p-20 { padding: 20px; }
+        
+        .hidden { display: none; }
+        .visible { display: block; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #0071e3;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #005bb5;
+        }
+
+        /* Enhanced interactive elements */
+        .component-item:hover {
+            transform: translateX(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</body>
+</html>
+                

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Rückgaberecht & Widerrufsbelehrung – MediaToConnect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: #2c3e50;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .main-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+    
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .content {
+      padding: 3rem;
+    }
+    
+    .quick-info {
+      background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+      border-left: 5px solid #4CAF50;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(76, 175, 80, 0.1);
+    }
+    
+    .quick-info h2 {
+      color: #2e7d32;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .quick-info .icon {
+      background: #4CAF50;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .highlight-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-top: 4px solid #667eea;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .highlight-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    .highlight-card .number {
+      background: #667eea;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    
+    .highlight-card h3 {
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+    
+    .section h2 {
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid #667eea;
+      display: inline-block;
+    }
+    
+    .section h3 {
+      color: #34495e;
+      margin: 2rem 0 1rem 0;
+      font-size: 1.4rem;
+    }
+    
+    .section p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+    
+    .contact-info {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 1rem;
+      color: white;
+    }
+    
+    .contact-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .widerrufsformular {
+      background: #f8f9fa;
+      border: 2px dashed #667eea;
+      border-radius: 15px;
+      padding: 2.5rem;
+      margin: 2rem 0;
+    }
+    
+    .form-field {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-field label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+    
+    .form-field input, .form-field textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-field input:focus, .form-field textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    .print-button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .print-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    }
+    
+    .warning-box {
+      background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+      border-left: 5px solid #ffc107;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+    
+    .warning-box h4 {
+      color: #856404;
+      margin-bottom: 0.5rem;
+    }
+    
+    .info-box {
+      background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+      border-left: 5px solid #17a2b8;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+    
+    .info-box h4 {
+      color: #0c5460;
+      margin-bottom: 0.5rem;
+    }
+    
+    .steps {
+      counter-reset: step-counter;
+    }
+    
+    .step {
+      counter-increment: step-counter;
+      position: relative;
+      padding-left: 4rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .step:before {
+      content: counter(step-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .step h4 {
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .content {
+        padding: 2rem;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-details {
+        grid-template-columns: 1fr;
+      }
+      
+      .highlights {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media print {
+      body {
+        background: white;
+      }
+      
+      .main-card {
+        box-shadow: none;
+        background: white;
+      }
+      
+      .header {
+        background: white;
+        color: black;
+      }
+      
+      .print-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-card">
+      <div class="header">
+        <h1>🔄 Rückgaberecht & Widerruf</h1>
+        <p>Ihre Rechte als Verbraucher bei MediaToConnect</p>
+      </div>
+      
+      <div class="content">
+        <div class="quick-info">
+          <h2>
+            <span class="icon">✓</span>
+            Das Wichtigste auf einen Blick
+          </h2>
+          <p><strong>Sie haben 14 Tage Zeit</strong>, um Ihre Bestellung ohne Angabe von Gründen zu widerrufen. Die Frist beginnt ab dem Tag, an dem Sie die Ware erhalten haben.</p>
+        </div>
+        
+        <div class="highlights">
+          <div class="highlight-card">
+            <div class="number">14</div>
+            <h3>Tage Widerrufsrecht</h3>
+            <p>Ohne Angabe von Gründen können Sie Ihren Kauf rückgängig machen</p>
+          </div>
+          
+          <div class="highlight-card">
+            <div class="number">💰</div>
+            <h3>Kostenlose Rückerstattung</h3>
+            <p>Wir erstatten den vollen Kaufpreis inkl. Standardversandkosten</p>
+          </div>
+          
+          <div class="highlight-card">
+            <div class="number">📧</div>
+            <h3>Einfache Abwicklung</h3>
+            <p>Per E-Mail, Formular oder Brief - ganz wie Sie möchten</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>🔍 Widerrufsbelehrung</h2>
+          
+          <h3>Wer kann widerrufen?</h3>
+          <p>Das Widerrufsrecht steht <strong>Verbrauchern</strong> zu. Das sind natürliche Personen, die ein Rechtsgeschäft zu Zwecken abschließen, die überwiegend weder ihrer gewerblichen noch ihrer selbständigen beruflichen Tätigkeit zugerechnet werden können.</p>
+          
+          <h3>Ihr Widerrufsrecht</h3>
+          <p>Sie haben das Recht, binnen <strong>vierzehn Tagen ohne Angabe von Gründen</strong> diesen Vertrag zu widerrufen.</p>
+          
+          <p>Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag, an dem Sie oder ein von Ihnen benannter Dritter, der nicht der Beförderer ist, die letzte Ware in Besitz genommen haben bzw. hat.</p>
+          
+          <div class="contact-info">
+            <h3>📞 So erreichen Sie uns für den Widerruf</h3>
+            <div class="contact-details">
+              <div class="contact-item">
+                <span>🏢</span>
+                <div>
+                  <strong>MediaToConnect</strong><br>
+                  Silvio Wölki<br>
+                  Reitbergerstr 5<br>
+                  28779 Bremen, Deutschland
+                </div>
+              </div>
+              <div class="contact-item">
+                <span>📞</span>
+                <div>
+                  <strong>Telefon:</strong><br>
+                  017657803035
+                </div>
+              </div>
+              <div class="contact-item">
+                <span>📧</span>
+                <div>
+                  <strong>E-Mail:</strong><br>
+                  shop@MediatoConnect.de
+                </div>
+              </div>
+              <div class="contact-item">
+                <span>🌐</span>
+                <div>
+                  <strong>Online-Formular:</strong><br>
+                  <a href="https://mediatoconnect.de/rueckerstattung_rueckgaben/" style="color: white;">Widerrufsformular</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <h3>Wie können Sie widerrufen?</h3>
+          <p>Um Ihr Widerrufsrecht auszuüben, müssen Sie uns mittels einer <strong>eindeutigen Erklärung</strong> über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Das können Sie auf verschiedene Weise tun:</p>
+          
+          <div class="steps">
+            <div class="step">
+              <h4>Per E-Mail</h4>
+              <p>Senden Sie uns eine E-Mail an <strong>shop@MediatoConnect.de</strong> mit Ihrer Widerrufserklärung.</p>
+            </div>
+            
+            <div class="step">
+              <h4>Per Post</h4>
+              <p>Schicken Sie uns einen Brief mit Ihrer Widerrufserklärung an unsere Geschäftsadresse.</p>
+            </div>
+            
+            <div class="step">
+              <h4>Online-Formular</h4>
+              <p>Verwenden Sie unser praktisches Online-Formular auf unserer Website oder das untenstehende Muster-Widerrufsformular.</p>
+            </div>
+          </div>
+          
+          <div class="info-box">
+            <h4>💡 Tipp</h4>
+            <p>Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts <strong>vor Ablauf der Widerrufsfrist absenden</strong>.</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>💰 Folgen des Widerrufs</h2>
+          
+          <h3>Was passiert nach Ihrem Widerruf?</h3>
+          
+          <div class="steps">
+            <div class="step">
+              <h4>Rückerstattung</h4>
+              <p>Wir erstatten Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, einschließlich der Lieferkosten (außer zusätzliche Kosten für Express-Versand), <strong>unverzüglich und spätestens binnen vierzehn Tagen</strong>.</p>
+            </div>
+            
+            <div class="step">
+              <h4>Zahlungsmethode</h4>
+              <p>Für die Rückzahlung verwenden wir <strong>dasselbe Zahlungsmittel</strong>, das Sie bei der ursprünglichen Transaktion eingesetzt haben - es entstehen Ihnen keine zusätzlichen Gebühren.</p>
+            </div>
+            
+            <div class="step">
+              <h4>Warensendung</h4>
+              <p>Sie müssen die Waren <strong>unverzüglich und spätestens binnen vierzehn Tagen</strong> an uns zurücksenden. Die Frist ist gewahrt, wenn Sie die Waren vor Ablauf absenden.</p>
+            </div>
+          </div>
+          
+          <div class="warning-box">
+            <h4>⚠️ Wichtige Hinweise</h4>
+            <p><strong>Rücksendekosten:</strong> Sie tragen die unmittelbaren Kosten der Rücksendung der Waren.</p>
+            <p><strong>Wertverlust:</strong> Sie müssen für einen etwaigen Wertverlust der Waren nur aufkommen, wenn dieser auf einen zur Prüfung nicht notwendigen Umgang zurückzuführen ist.</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>🚫 Ausschluss des Widerrufsrechts</h2>
+          
+          <p>Das Widerrufsrecht besteht <strong>nicht</strong> bei:</p>
+          
+          <div class="highlight-card">
+            <div class="number">⚠️</div>
+            <h3>Individuell angefertigte Waren</h3>
+            <p>Verträge zur Lieferung von Waren, die nicht vorgefertigt sind und für deren Herstellung eine individuelle Auswahl oder Bestimmung durch den Verbraucher maßgeblich ist oder die eindeutig auf die persönlichen Bedürfnisse des Verbrauchers zugeschnitten sind.</p>
+          </div>
+          
+          <div class="info-box">
+            <h4>🌍 Hinweis für internationale Kunden</h4>
+            <p>Das Widerrufsrecht gilt nicht für Verbraucher, die zum Zeitpunkt des Vertragsschlusses keinem Mitgliedstaat der Europäischen Union angehören und deren alleiniger Wohnsitz und Lieferadresse außerhalb der EU liegen.</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>📦 Praktische Hinweise zur Rücksendung</h2>
+          
+          <div class="steps">
+            <div class="step">
+              <h4>Verpackung</h4>
+              <p>Vermeiden Sie Beschädigungen und Verunreinigungen. Senden Sie die Ware idealerweise in der Originalverpackung mit sämtlichem Zubehör zurück.</p>
+            </div>
+            
+            <div class="step">
+              <h4>Versand</h4>
+              <p>Senden Sie die Ware bitte <strong>nicht unfrei</strong> an uns zurück. Verwenden Sie eine ausreichende Schutzverpackung gegen Transportschäden.</p>
+            </div>
+            
+            <div class="step">
+              <h4>Keine Voraussetzung</h4>
+              <p>Diese Hinweise sind <strong>nicht Voraussetzung</strong> für die wirksame Ausübung des Widerrufsrechts - sie helfen aber bei einer reibungslosen Abwicklung.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>📝 Muster-Widerrufsformular</h2>
+          
+          <p>Wenn Sie den Vertrag widerrufen wollen, dann können Sie dieses Formular verwenden:</p>
+          
+          <div class="widerrufsformular">
+            <h3>Widerrufsformular</h3>
+            
+            <div class="contact-info" style="margin: 1rem 0;">
+              <h3>An:</h3>
+              <p style="margin: 0;">
+                <strong>Silvio Wölki<br>
+                MediatoConnect<br>
+                Reitbergerstr 5<br>
+                28779 Bremen<br>
+                Deutschland</strong><br><br>
+                <strong>E-Mail:</strong> shop@MediatoConnect.de
+              </p>
+            </div>
+            
+            <form id="widerrufsform">
+              <div class="form-field">
+                <p><strong>Hiermit widerrufe(n) ich/wir den von mir/uns abgeschlossenen Vertrag über den Kauf der folgenden Waren/die Erbringung der folgenden Dienstleistung:</strong></p>
+                <textarea name="waren" rows="3" placeholder="Beschreibung der Waren/Dienstleistung"></textarea>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="bestelldatum">Bestellt am:</label>
+                  <input type="date" id="bestelldatum" name="bestelldatum">
+                </div>
+                
+                <div class="form-field">
+                  <label for="erhaltendatum">Erhalten am:</label>
+                  <input type="date" id="erhaltendatum" name="erhaltendatum">
+                </div>
+              </div>
+              
+              <div class="form-field">
+                <label for="name">Name des/der Verbraucher(s):</label>
+                <input type="text" id="name" name="name" placeholder="Vor- und Nachname">
+              </div>
+              
+              <div class="form-field">
+                <label for="adresse">Anschrift des/der Verbraucher(s):</label>
+                <textarea name="adresse" rows="3" placeholder="Straße, Hausnummer, PLZ, Ort, Land"></textarea>
+              </div>
+              
+              <div class="form-field">
+                <label for="datum">Datum:</label>
+                <input type="date" id="datum" name="datum">
+              </div>
+              
+              <div class="form-field">
+                <p><em>Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier)</em></p>
+                <div style="height: 50px; border: 2px dashed #ccc; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: #999;">
+                  Unterschriftenfeld (nur beim Ausdruck)
+                </div>
+              </div>
+            </form>
+            
+            <button class="print-button" onclick="window.print()">
+              🖨️ Formular drucken
+            </button>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <h4>❓ Haben Sie Fragen?</h4>
+          <p>Unser Kundenservice hilft Ihnen gerne weiter! Kontaktieren Sie uns per E-Mail unter <strong>shop@MediatoConnect.de</strong> oder telefonisch unter <strong>017657803035</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Aktuelles Datum automatisch setzen
+    document.addEventListener('DOMContentLoaded', function() {
+      const heute = new Date().toISOString().split('T')[0];
+      document.getElementById('datum').value = heute;
+    });
+    
+    // Smooth Scrolling für Anker-Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

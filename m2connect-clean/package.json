@@ -1,0 +1,19 @@
+{
+  "name": "m2connect-api",
+  "version": "1.0.0",
+  "description": "M2CONNECT Website & API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@mollie/api-client": "^4.3.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.0",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.6"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

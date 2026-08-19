@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Datenschutzerklärung – MediaToConnect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: #2c3e50;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .main-card {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+      overflow: hidden;
+      animation: fadeInScale 1s ease-out;
+    }
+    
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.95) translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: rotate 25s linear infinite;
+    }
+    
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .header p {
+      font-size: 1.3rem;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .content {
+      padding: 4rem;
+    }
+    
+    .privacy-hero {
+      background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 100%);
+      border-left: 6px solid #4CAF50;
+      padding: 2.5rem;
+      margin-bottom: 4rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(76, 175, 80, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .privacy-hero::before {
+      content: '🔒';
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      font-size: 3rem;
+      opacity: 0.3;
+    }
+    
+    .privacy-hero h2 {
+      color: #2e7d32;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .privacy-hero .icon {
+      background: #4CAF50;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    
+    .toc {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 4rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    .toc h2 {
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .toc h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 2px;
+    }
+    
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    
+    .toc-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border-left: 4px solid transparent;
+    }
+    
+    .toc-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border-left-color: #667eea;
+    }
+    
+    .toc-item .number {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      font-weight: bold;
+      margin-right: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .section {
+      margin-bottom: 4rem;
+      background: white;
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    
+    .section:hover {
+      transform: translateY(-2px);
+    }
+    
+    .section h2 {
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 4px solid #667eea;
+      display: inline-block;
+      position: relative;
+    }
+    
+    .section h3 {
+      color: #34495e;
+      margin: 2.5rem 0 1.5rem 0;
+      font-size: 1.6rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+    
+    .section h3::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 2px;
+    }
+    
+    .section h4 {
+      color: #34495e;
+      margin: 2rem 0 1rem 0;
+      font-size: 1.3rem;
+    }
+    
+    .section p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+      line-height: 1.8;
+    }
+    
+    .section ul, .section ol {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+    }
+    
+    .section li {
+      margin-bottom: 0.5rem;
+      line-height: 1.7;
+    }
+    
+    .contact-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 3rem;
+      border-radius: 20px;
+      margin: 3rem 0;
+      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+    }
+    
+    .contact-card h3 {
+      margin-bottom: 2rem;
+      color: white;
+      font-size: 1.8rem;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,0.1);
+      padding: 1.5rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .contact-item .icon {
+      font-size: 1.5rem;
+      width: 40px;
+      text-align: center;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+      border-left: 6px solid #ffc107;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 5px 20px rgba(255, 193, 7, 0.2);
+    }
+    
+    .highlight-box h4 {
+      color: #856404;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    
+    .info-box {
+      background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+      border-left: 6px solid #17a2b8;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 5px 20px rgba(23, 162, 184, 0.2);
+    }
+    
+    .info-box h4 {
+      color: #0c5460;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    
+    .warning-box {
+      background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+      border-left: 6px solid #dc3545;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 5px 20px rgba(220, 53, 69, 0.2);
+    }
+    
+    .warning-box h4 {
+      color: #721c24;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .right-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      border-top: 4px solid #667eea;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .right-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .right-card h4 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .service-card {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #667eea;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      background: white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+    }
+    
+    .service-card h5 {
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .service-card p {
+      font-size: 0.9rem;
+      color: #6c757d;
+      margin: 0;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      
+      .content {
+        padding: 2rem;
+      }
+      
+      .header {
+        padding: 3rem 2rem;
+      }
+      
+      .header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .toc-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .rights-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section {
+        padding: 2rem;
+      }
+    }
+    
+    @media print {
+      body {
+        background: white;
+      }
+      
+      .main-card {
+        box-shadow: none;
+        background: white;
+      }
+      
+      .header {
+        background: white;
+        color: black;
+      }
+      
+      .back-to-top {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-card">
+      <div class="header">
+        <h1>🔒 Datenschutzerklärung</h1>
+        <p>Transparenz und Schutz Ihrer persönlichen Daten bei MediaToConnect</p>
+      </div>
+      
+      <div class="content">
+        <div class="privacy-hero">
+          <h2>
+            <span class="icon">🛡️</span>
+            Ihr Datenschutz ist unser Auftrag
+          </h2>
+          <p><strong>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst.</strong> Diese Datenschutzerklärung informiert Sie ausführlich über die Verarbeitung Ihrer personenbezogenen Daten bei der Nutzung unserer Website und unserer Dienste. Alle Verarbeitungen erfolgen gemäß der Datenschutz-Grundverordnung (DSGVO) und dem Bundesdatenschutzgesetz (BDSG).</p>
+        </div>
+        
+        <div class="toc">
+          <h2>📋 Inhaltsverzeichnis</h2>
+          <div class="toc-grid">
+            <div class="toc-item" onclick="scrollToSection('einleitung')">
+              <span class="number">1</span>
+              Einleitung und Kontaktdaten
+            </div>
+            <div class="toc-item" onclick="scrollToSection('datenerfassung')">
+              <span class="number">2</span>
+              Datenerfassung beim Website-Besuch
+            </div>
+            <div class="toc-item" onclick="scrollToSection('hosting')">
+              <span class="number">3</span>
+              Hosting & Content-Delivery
+            </div>
+            <div class="toc-item" onclick="scrollToSection('cookies')">
+              <span class="number">4</span>
+              Cookies
+            </div>
+            <div class="toc-item" onclick="scrollToSection('kontakt')">
+              <span class="number">5</span>
+              Kontaktaufnahme
+            </div>
+            <div class="toc-item" onclick="scrollToSection('kommentare')">
+              <span class="number">6</span>
+              Kommentarfunktion
+            </div>
+            <div class="toc-item" onclick="scrollToSection('kundenkonto')">
+              <span class="number">7</span>
+              Kundenkonto
+            </div>
+            <div class="toc-item" onclick="scrollToSection('bestellabwicklung')">
+              <span class="number">8</span>
+              Bestellabwicklung
+            </div>
+            <div class="toc-item" onclick="scrollToSection('marketing')">
+              <span class="number">9</span>
+              Online-Marketing
+            </div>
+            <div class="toc-item" onclick="scrollToSection('tools')">
+              <span class="number">10</span>
+              Tools und Sonstiges
+            </div>
+            <div class="toc-item" onclick="scrollToSection('rechte')">
+              <span class="number">11</span>
+              Ihre Rechte
+            </div>
+            <div class="toc-item" onclick="scrollToSection('speicherdauer')">
+              <span class="number">12</span>
+              Speicherdauer
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="einleitung">
+          <h2>1) Einleitung und Kontaktdaten des Verantwortlichen</h2>
+          
+          <h3>1.1 Willkommen</h3>
+          <p>Wir freuen uns, dass Sie unsere Website besuchen und bedanken uns für Ihr Interesse. Im Folgenden informieren wir Sie über den Umgang mit Ihren personenbezogenen Daten bei der Nutzung unserer Website. <strong>Personenbezogene Daten</strong> sind hierbei alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+          
+          <h3>1.2 Verantwortlicher</h3>
+          <p>Verantwortlicher für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
+          
+          <div class="contact-card">
+            <h3>📧 Kontaktdaten des Verantwortlichen</h3>
+            <div class="contact-grid">
+              <div class="contact-item">
+                <span class="icon">🏢</span>
+                <div>
+                  <strong>MediaToConnect</strong><br>
+                  Silvio Wölki<br>
+                  Reitbergerstr 5<br>
+                  28779 Bremen, Deutschland
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="icon">📞</span>
+                <div>
+                  <strong>Telefon:</strong><br>
+                  017657803035
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="icon">📧</span>
+                <div>
+                  <strong>E-Mail:</strong><br>
+                  shop@MediatoConnect.de
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <p>Der für die Verarbeitung von personenbezogenen Daten Verantwortliche ist diejenige natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.</p>
+        </div>
+
+        <div class="section" id="datenerfassung">
+          <h2>2) Datenerfassung beim Besuch unserer Website</h2>
+          
+          <h3>2.1 Server-Logfiles</h3>
+          <p>Bei der bloß informatorischen Nutzung unserer Website, also wenn Sie sich nicht registrieren oder uns anderweitig Informationen übermitteln, erheben wir nur solche Daten, die Ihr Browser an den Seitenserver übermittelt (sog. <strong>„Server-Logfiles"</strong>).</p>
+          
+          <div class="info-box">
+            <h4>📊 Folgende Daten werden automatisch erfasst:</h4>
+            <ul>
+              <li>Unsere besuchte Website</li>
+              <li>Datum und Uhrzeit zum Zeitpunkt des Zugriffes</li>
+              <li>Menge der gesendeten Daten in Byte</li>
+              <li>Quelle/Verweis, von welchem Sie auf die Seite gelangten</li>
+              <li>Verwendeter Browser</li>
+              <li>Verwendetes Betriebssystem</li>
+              <li>Verwendete IP-Adresse (ggf. in anonymisierter Form)</li>
+            </ul>
+          </div>
+          
+          <p>Die Verarbeitung erfolgt gemäß <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> auf Basis unseres berechtigten Interesses an der Verbesserung der Stabilität und Funktionalität unserer Website. Eine Weitergabe oder anderweitige Verwendung der Daten findet nicht statt. Wir behalten uns allerdings vor, die Server-Logfiles nachträglich zu überprüfen, sollten konkrete Anhaltspunkte auf eine rechtswidrige Nutzung hinweisen.</p>
+          
+          <h3>2.2 SSL-/TLS-Verschlüsselung</h3>
+          <p>Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung personenbezogener Daten und anderer vertraulicher Inhalte (z.B. Bestellungen oder Anfragen an den Verantwortlichen) eine <strong>SSL-bzw. TLS-Verschlüsselung</strong>.</p>
+          
+          <div class="highlight-box">
+            <h4>🔒 Sichere Verbindung erkennen</h4>
+            <p>Sie können eine verschlüsselte Verbindung an der Zeichenfolge <strong>„https://"</strong> und dem <strong>Schloss-Symbol</strong> in Ihrer Browserzeile erkennen.</p>
+          </div>
+        </div>
+
+        <div class="section" id="hosting">
+          <h2>3) Hosting & Content-Delivery-Network</h2>
+          
+          <p>Für das Hosting unserer Website und die Darstellung der Seiteninhalte nutzen wir einen Anbieter, der seine Leistungen selbst oder durch ausgewählte Sub-Unternehmer <strong>ausschließlich auf Servern innerhalb der Europäischen Union</strong> erbringt.</p>
+          
+          <div class="info-box">
+            <h4>🌍 EU-Datenschutz gewährleistet</h4>
+            <p>Sämtliche auf unserer Website erhobenen Daten werden auf diesen Servern verarbeitet. Wir haben mit dem Anbieter einen <strong>Auftragsverarbeitungsvertrag</strong> geschlossen, der den Schutz der Daten unserer Seitenbesucher sicherstellt und eine unberechtigte Weitergabe an Dritte untersagt.</p>
+          </div>
+        </div>
+
+        <div class="section" id="cookies">
+          <h2>4) Cookies</h2>
+          
+          <p>Um den Besuch unserer Website attraktiv zu gestalten und die Nutzung bestimmter Funktionen zu ermöglichen, verwenden wir <strong>Cookies</strong>, also kleine Textdateien, die auf Ihrem Endgerät abgelegt werden.</p>
+          
+          <h3>Cookie-Arten</h3>
+          <div class="service-grid">
+            <div class="service-card">
+              <h5>🔄 Session-Cookies</h5>
+              <p>Werden nach Schließen des Browsers automatisch wieder gelöscht</p>
+            </div>
+            <div class="service-card">
+              <h5>💾 Persistente Cookies</h5>
+              <p>Verbleiben länger auf Ihrem Endgerät und ermöglichen das Speichern von Seiteneinstellungen</p>
+            </div>
+          </div>
+          
+          <h3>Rechtsgrundlagen</h3>
+          <p>Sofern durch einzelne von uns eingesetzte Cookies auch personenbezogene Daten verarbeitet werden, erfolgt die Verarbeitung gemäß:</p>
+          <ul>
+            <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> zur Durchführung des Vertrages</li>
+            <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> im Falle einer erteilten Einwilligung</li>
+            <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> zur Wahrung unserer berechtigten Interessen</li>
+          </ul>
+          
+          <div class="highlight-box">
+            <h4>⚙️ Cookie-Einstellungen</h4>
+            <p>Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und einzeln über deren Annahme entscheiden oder die Annahme von Cookies für bestimmte Fälle oder generell ausschließen können. Bitte beachten Sie, dass bei Nichtannahme von Cookies die Funktionalität unserer Website eingeschränkt sein kann.</p>
+          </div>
+        </div>
+
+        <div class="section" id="kontakt">
+          <h2>5) Kontaktaufnahme</h2>
+          
+          <p>Im Rahmen der Kontaktaufnahme mit uns (z.B. per Kontaktformular oder E-Mail) werden – ausschließlich zum Zweck der Bearbeitung und Beantwortung Ihres Anliegens und nur im dafür erforderlichen Umfang – personenbezogene Daten verarbeitet.</p>
+          
+          <h3>Rechtsgrundlagen</h3>
+          <ul>
+            <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> - Berechtigtes Interesse an der Beantwortung Ihres Anliegens</li>
+            <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> - Bei Kontaktierung zwecks Vertragsabschluss</li>
+          </ul>
+          
+          <div class="info-box">
+            <h4>🗂️ Datenlöschung</h4>
+            <p>Ihre Daten werden gelöscht, wenn sich aus den Umständen entnehmen lässt, dass der betroffene Sachverhalt abschließend geklärt ist und sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+          </div>
+        </div>
+
+        <div class="section" id="kommentare">
+          <h2>6) Kommentarfunktion</h2>
+          
+          <p>Im Rahmen der Kommentarfunktion auf dieser Website werden gespeichert und veröffentlicht:</p>
+          <ul>
+            <li>Ihr Kommentar</li>
+            <li>Zeitpunkt der Erstellung des Kommentars</li>
+            <li>Der von Ihnen gewählte Kommentatorenname</li>
+            <li>Ihre IP-Adresse (aus Sicherheitsgründen)</li>
+          </ul>
+          
+          <div class="highlight-box">
+            <h4>🛡️ Sicherheitsmaßnahmen</h4>
+            <p>Die Speicherung der IP-Adresse erfolgt aus Sicherheitsgründen und für den Fall, dass die betroffene Person durch einen abgegebenen Kommentar die Rechte Dritter verletzt oder rechtswidrige Inhalte postet. Ihre E-Mail-Adresse benötigen wir, um mit Ihnen in Kontakt zu treten, falls ein Dritter Ihren veröffentlichten Inhalt als rechtswidrig beanstanden sollte.</p>
+          </div>
+          
+          <p><strong>Rechtsgrundlagen:</strong> Art. 6 Abs. 1 lit. b und f DSGVO. Wir behalten uns vor, Kommentare zu löschen, wenn sie von Dritten als rechtswidrig beanstandet werden.</p>
+        </div>
+
+        <div class="section" id="kundenkonto">
+          <h2>7) Datenverarbeitung bei Eröffnung eines Kundenkontos</h2>
+          
+          <p>Gemäß <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> werden personenbezogene Daten im jeweils erforderlichen Umfang weiterhin erhoben und verarbeitet, wenn Sie uns diese bei der Eröffnung eines Kundenkontos mitteilen. Welche Daten für die Kontoeröffnung erforderlich sind, entnehmen Sie der Eingabemaske des entsprechenden Formulars auf unserer Website.</p>
+          
+          <div class="info-box">
+            <h4>🗑️ Konto löschen</h4>
+            <p>Eine Löschung Ihres Kundenkontos ist jederzeit möglich und kann durch eine Nachricht an die oben genannte Adresse des Verantwortlichen erfolgen. Nach Löschung Ihres Kundenkontos werden Ihre Daten gelöscht, sofern alle darüber geschlossenen Verträge vollständig abgewickelt sind, keine gesetzlichen Aufbewahrungsfristen entgegenstehen und unsererseits kein berechtigtes Interesse an der Weiterspeicherung fortbesteht.</p>
+          </div>
+        </div>
+
+        <div class="section" id="bestellabwicklung">
+          <h2>8) Datenverarbeitung zur Bestellabwicklung</h2>
+          
+          <h3>8.1 Allgemeine Bestellabwicklung</h3>
+          <p>Soweit für die Vertragsabwicklung zu Liefer- und Zahlungszwecken erforderlich, werden die von uns erhobenen personenbezogenen Daten gemäß <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> an das beauftragte Transportunternehmen und das beauftragte Kreditinstitut weitergegeben.</p>
+          
+          <div class="info-box">
+            <h4>🔄 Aktualisierungen für digitale Produkte</h4>
+            <p>Sofern wir Ihnen auf Grundlage eines entsprechenden Vertrages Aktualisierungen für Waren mit digitalen Elementen oder für digitale Produkte schulden, verarbeiten wir die von Ihnen bei der Bestellung übermittelten Kontaktdaten, um Sie im Rahmen unserer gesetzlichen Informationspflichten gemäß <strong>Art. 6 Abs. 1 lit. c DSGVO</strong> über anstehende Aktualisierungen zu informieren.</p>
+          </div>
+          
+          <h3>8.2 Versanddienstleister</h3>
+          <h4>📦 Deutsche Post DHL</h4>
+          <div class="service-card">
+            <h5>Deutsche Post DHL Research And Innovation GmbH</h5>
+            <p>Kurt-Schumacher-Str. 1, 53113 Bonn</p>
+          </div>
+          <p>Gemäß <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> übermitteln wir digitale Versandetiketten mit Ihren Lieferinformationen ausschließlich zum Zwecke der Abwicklung Ihrer Online-Bestellung aus unserem Bestellabwicklungssystem an den Anbieter, welcher diese sodann an unsere lokalen Drucker sendet, um den Ausdruck zu ermöglichen.</p>
+          
+          <h3>8.3 Zahlungsdienstleister</h3>
+          
+          <h4>💳 Amazon Pay</h4>
+          <div class="service-card">
+            <h5>Amazon Payments Europe s.c.a.</h5>
+            <p>38 avenue J.F. Kennedy, L-1855 Luxemburg</p>
+          </div>
+          <p>Bei Auswahl einer Zahlungsart des Anbieters, bei der Sie in Vorleistung gehen (etwa Kreditkartenzahlung), werden an diesen Ihre Zahlungsdaten sowie Informationen über den Inhalt Ihrer Bestellung gemäß <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> weitergegeben.</p>
+          
+          <h4>🏦 giropay</h4>
+          <div class="service-card">
+            <h5>paydirekt GmbH</h5>
+            <p>Stephanstr. 14-16, 60313 Frankfurt am Main, Deutschland</p>
+          </div>
+          
+          <h4>📱 Google Pay</h4>
+          <div class="service-card">
+            <h5>Google Ireland Limited</h5>
+            <p>Gordon House, 4 Barrow St, Dublin, D04 E5W5, Irland</p>
+          </div>
+          <p>Wenn Sie sich für die Zahlungsart „Google Pay" entscheiden, erfolgt die Zahlungsabwicklung über die „Google Pay"-Applikation Ihres mobilen Endgeräts. Für Zahlungen über 25€ ist das vorherige Entsperren Ihres Gerätes durch Verifikationsmaßnahmen erforderlich.</p>
+          
+          <div class="warning-box">
+            <h4>⚠️ Wichtige Hinweise zu Google Pay</h4>
+            <p>Google behält sich vor, bei jeder über Google Pay getätigten Transaktion bestimmte vorgangsspezifische Informationen zu erheben, zu speichern und auszuwerten. Weitere Informationen finden Sie in den <a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=googlepaytos&ldl=de" target="_blank">Google Pay Nutzungsbedingungen</a> und der <a href="https://payments.google.com/payments/apis-secure/get_legal_document?ldo=0&ldt=privacynotice&ldl=de" target="_blank">Google Pay Datenschutzerklärung</a>.</p>
+          </div>
+          
+          <h4>💰 PayPal</h4>
+          <div class="service-card">
+            <h5>PayPal (Europe) S.a.r.l. et Cie, S.C.A.</h5>
+            <p>22-24 Boulevard Royal, L-2449 Luxemburg</p>
+          </div>
+          <p>Bei Auswahl einer PayPal-Zahlungsart werden Ihre Zahlungsdaten zur Zahlungsabwicklung an PayPal weitergegeben. Bei Zahlungsarten, bei denen wir in Vorleistung gehen, führt PayPal eine Bonitätsprüfung durch.</p>
+          
+          <h4>⚡ SOFORT</h4>
+          <div class="service-card">
+            <h5>SOFORT GmbH</h5>
+            <p>Theresienhöhe 12, 80339 München, Deutschland</p>
+          </div>
+          
+          <h4>💳 Stripe</h4>
+          <div class="service-card">
+            <h5>Stripe Payments Europe Ltd.</h5>
+            <p>1 Grand Canal Street Lower, Grand Canal Dock, Dublin, Irland</p>
+          </div>
+          <p>Bei Auswahl einer Stripe-Zahlungsart werden Ihre Zahlungsdaten zur Zahlungsabwicklung weitergegeben. Bei bestimmten Zahlungsarten kann eine Bonitätsprüfung durchgeführt werden.</p>
+          
+          <h4>🛒 WooCommerce Payments</h4>
+          <div class="service-card">
+            <h5>Automattic Inc.</h5>
+            <p>60 29th Street #343, San Francisco, CA 94110-4929, USA</p>
+          </div>
+          <p>Für Datenübermittlungen in die USA hat sich der Anbieter dem EU-US-Datenschutzrahmen (EU-US Data Privacy Framework) angeschlossen, das die Einhaltung des europäischen Datenschutzniveaus sicherstellt.</p>
+        </div>
+
+        <div class="section" id="marketing">
+          <h2>9) Online-Marketing</h2>
+          
+          <h3>🛍️ Amazon Affiliate</h3>
+          <p>Wir nehmen am Affiliate-Programm von <strong>Amazon EU S.a.r.l., 38 avenue John F. Kennedy, L-1855 Luxemburg</strong> teil.</p>
+          
+          <p>In diesem Zusammenhang haben wir auf unserer Website Links platziert, die zu Angeboten auf Websites des Anbieters oder Dritter („Partnerseiten") führen.</p>
+          
+          <div class="info-box">
+            <h4>🍪 Cookies für Affiliate-Tracking</h4>
+            <p>Zur Messung des Erfolgs eines Affiliate-Links verwendet der Anbieter Cookies und/oder vergleichbare Technologien. Alle beschriebenen Verarbeitungen erfolgen nur dann, wenn Sie hierfür gemäß <strong>Art. 6 Abs. 1 lit. a DSGVO</strong> Ihre ausdrückliche Einwilligung erteilt haben.</p>
+          </div>
+        </div>
+
+        <div class="section" id="tools">
+          <h2>10) Tools und Sonstiges</h2>
+          
+          <h3>🍪 Cookie-Consent-Tool</h3>
+          <p>Diese Website nutzt zur Einholung wirksamer Nutzereinwilligungen für einwilligungspflichtige Cookies und cookie-basierte Anwendungen ein sog. „Cookie-Consent-Tool".</p>
+          
+          <div class="highlight-box">
+            <h4>⚙️ Funktionsweise</h4>
+            <p>Das Cookie-Consent-Tool wird Nutzern bei Seitenaufruf in Form einer interaktiven Benutzeroberfläche angezeigt, auf welcher sich per Häkchensetzung Einwilligungen für bestimmte Cookies erteilen lassen. Hierbei werden alle einwilligungspflichtigen Cookies/Dienste nur dann geladen, wenn der jeweilige Nutzer entsprechende Einwilligungen erteilt.</p>
+          </div>
+          
+          <p><strong>Rechtsgrundlagen:</strong></p>
+          <ul>
+            <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> - Berechtigtes Interesse an rechtskonformem Einwilligungsmanagement</li>
+            <li><strong>Art. 6 Abs. 1 lit. c DSGVO</strong> - Rechtliche Verpflichtung zur Einholung von Nutzereinwilligungen</li>
+          </ul>
+        </div>
+
+        <div class="section" id="rechte">
+          <h2>11) Rechte des Betroffenen</h2>
+          
+          <p>Das geltende Datenschutzrecht gewährt Ihnen gegenüber dem Verantwortlichen hinsichtlich der Verarbeitung Ihrer personenbezogenen Daten die nachstehenden Betroffenenrechte:</p>
+          
+          <div class="rights-grid">
+            <div class="right-card">
+              <h4>📋 Auskunftsrecht</h4>
+              <p>Art. 15 DSGVO - Recht auf Auskunft über die Sie betreffenden personenbezogenen Daten</p>
+            </div>
+            
+            <div class="right-card">
+              <h4>✏️ Recht auf Berichtigung</h4>
+              <p>Art. 16 DSGVO - Recht auf Korrektur unrichtiger oder unvollständiger Daten</p>
+            </div>
+            
+            <div class="right-card">
+              <h4>🗑️ Recht auf Löschung</h4>
+              <p>Art. 17 DSGVO - Recht auf Löschung Ihrer personenbezogenen Daten</p>
+            </div>
+            
+            <div class="right-card">
+              <h4>⏸️ Recht auf Einschränkung</h4>
+              <p>Art. 18 DSGVO - Recht auf Einschränkung der Verarbeitung</p>
+            </div>
+            
+            <div class="right-card">
+              <h4>📢 Recht auf Unterrichtung</h4>
+              <p>Art. 19 DSGVO - Mitteilung über Berichtigung oder Löschung</p>
+            </div>
+            
+            <div class="right-card">
+              <h4>📦 Recht auf Datenübertragbarkeit</h4>
+              <p>Art. 20 DSGVO - Recht auf Übertragung Ihrer Daten in einem strukturierten Format</p>
+            </div>
+            
+            <div class="right-card">
+              <h4>↩️ Recht auf Widerruf</h4>
+              <p>Art. 7 Abs. 3 DSGVO - Widerruf erteilter Einwilligungen</p>
+            </div>
+            
+            <div class="right-card">
+              <h4>📝 Recht auf Beschwerde</h4>
+              <p>Art. 77 DSGVO - Beschwerde bei einer Aufsichtsbehörde</p>
+            </div>
+          </div>
+          
+          <div class="warning-box">
+            <h4>⚠️ WIDERSPRUCHSRECHT</h4>
+            <p><strong>WENN WIR IM RAHMEN EINER INTERESSENABWÄGUNG IHRE PERSONENBEZOGENEN DATEN AUFGRUND UNSERES ÜBERWIEGENDEN BERECHTIGTEN INTERESSES VERARBEITEN, HABEN SIE DAS JEDERZEITIGE RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIESE VERARBEITUNG WIDERSPRUCH MIT WIRKUNG FÜR DIE ZUKUNFT EINZULEGEN.</strong></p>
+            
+            <p>MACHEN SIE VON IHREM WIDERSPRUCHSRECHT GEBRAUCH, BEENDEN WIR DIE VERARBEITUNG DER BETROFFENEN DATEN. EINE WEITERVERARBEITUNG BLEIBT ABER VORBEHALTEN, WENN WIR ZWINGENDE SCHUTZWÜRDIGE GRÜNDE FÜR DIE VERARBEITUNG NACHWEISEN KÖNNEN.</p>
+            
+            <p><strong>DIREKTWERBUNG:</strong> WERDEN IHRE PERSONENBEZOGENEN DATEN VON UNS VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, HABEN SIE DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG EINZULEGEN.</p>
+          </div>
+        </div>
+
+        <div class="section" id="speicherdauer">
+          <h2>12) Dauer der Speicherung personenbezogener Daten</h2>
+          
+          <p>Die Dauer der Speicherung von personenbezogenen Daten bemisst sich anhand der jeweiligen Rechtsgrundlage, am Verarbeitungszweck und – sofern einschlägig – zusätzlich anhand der jeweiligen gesetzlichen Aufbewahrungsfrist.</p>
+          
+          <div class="service-grid">
+            <div class="service-card">
+              <h5>📋 Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)</h5>
+              <p>Speicherung bis zum Widerruf der Einwilligung</p>
+            </div>
+            
+            <div class="service-card">
+              <h5>📄 Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO)</h5>
+              <p>Speicherung bis Ablauf gesetzlicher Aufbewahrungsfristen nach Vertragsende</p>
+            </div>
+            
+            <div class="service-card">
+              <h5>⚖️ Berechtigte Interessen (Art. 6 Abs. 1 lit. f DSGVO)</h5>
+              <p>Speicherung bis zur Ausübung des Widerspruchsrechts</p>
+            </div>
+            
+            <div class="service-card">
+              <h5>📢 Direktwerbung</h5>
+              <p>Speicherung bis zum Widerspruch gegen Direktwerbung</p>
+            </div>
+          </div>
+          
+          <div class="info-box">
+            <h4>📅 Aufbewahrungsfristen</h4>
+            <p>Existieren gesetzliche Aufbewahrungsfristen (z.B. handels- und steuerrechtliche Aufbewahrungsfristen), werden diese Daten nach Ablauf der Aufbewahrungsfristen routinemäßig gelöscht, sofern sie nicht mehr zur Vertragserfüllung erforderlich sind und kein berechtigtes Interesse an der Weiterspeicherung fortbesteht.</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>📞 Haben Sie Fragen zum Datenschutz?</h3>
+          <p>Unser Datenschutzbeauftragter und unser Team stehen Ihnen gerne für Fragen, Anregungen oder Beschwerden zum Datenschutz zur Verfügung. Kontaktieren Sie uns jederzeit!</p>
+          <div class="contact-grid">
+            <div class="contact-item">
+              <span class="icon">📧</span>
+              <div>
+                <strong>E-Mail:</strong><br>
+                shop@MediatoConnect.de
+              </div>
+            </div>
+            <div class="contact-item">
+              <span class="icon">📞</span>
+              <div>
+                <strong>Telefon:</strong><br>
+                017657803035
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 4rem; padding-top: 3rem; border-top: 3px solid #eee; text-align: center; color: #7f8c8d;">
+          <p><strong>MediaToConnect - Datenschutzerklärung</strong><br>
+          Stand: Mai 2025 | Letzte Aktualisierung: 27.05.2025</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-to-top" id="backToTop">
+    ↑
+  </div>
+
+  <script>
+    // Smooth Scrolling für Anker-Links
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    
+    // Back to Top Button
+    window.addEventListener('scroll', function() {
+      const backToTop = document.getElementById('backToTop');
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    document.getElementById('backToTop').addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // TOC Items Click Handler
+    document.querySelectorAll('.toc-item').forEach(item => {
+      item.addEventListener('click', function() {
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 150);
+      });
+    });
+    
+    // Section Hover Effects
+    document.querySelectorAll('.section').forEach(section => {
+      section.addEventListener('mouseenter', function() {
+        this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.12)';
+      });
+      
+      section.addEventListener('mouseleave', function() {
+        this.style.boxShadow = '0 8px 30px rgba(0,0,0,0.08)';
+      });
+    });
+  </script>
+</body>
+</html>
